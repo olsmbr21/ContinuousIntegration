@@ -30,4 +30,12 @@ class CalculatorTest {
     void divide() {
         assertEquals(3, calc.divide(6, 2));
     }
+
+    @Test
+    void testCalculateSquareRootNegative() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            calc.calculateSquareRoot(-4.0);
+        });
+        assertEquals("Cannot calculate the square root of a negative number.", exception.getMessage());
+    }
 }
